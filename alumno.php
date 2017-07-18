@@ -9,7 +9,6 @@
         	$telEmergencia = $_POST['telEmergencia'];
         	$direccion = $_POST['direccion'];
             $pass = $_POST['pass'];
-
             #Creamos un INSERT para agregar el usuario
             $insertUsuario="INSERT INTO alumno(nombreAlumno,periodo,correo,direccion,telefono,telEmergencia,pass)
                            VALUES('{$nombre}','{$periodo}','{$correo}','{$direccion}','{$telefono}','{$telEmergencia}',md5('{$pass}'));";
@@ -35,8 +34,7 @@
     		Télefono de Emergencia <input type="text" name="telEmergencia" required="Campo vacio"><br>
     		Dirección <input type="text" name="direccion" required="Campo vacio"><br>
             Contraseña <input type="password" name="pass" required=""><br>
-            Contraseña <input type="password" name="pass" required=""><br>
-    		<input type="submit" name ="btnRegistro" value="Registrar" >
+            <input type="submit" name ="btnRegistro" value="Registrar" >
         </form>
 </body>
 </html>
