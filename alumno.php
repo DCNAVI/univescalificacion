@@ -9,9 +9,10 @@
         	$telEmergencia = $_POST['telEmergencia'];
         	$direccion = $_POST['direccion'];
             $pass = $_POST['pass'];
+
             #Creamos un INSERT para agregar el usuario
             $insertUsuario="INSERT INTO alumno(nombreAlumno,periodo,correo,direccion,telefono,telEmergencia,pass)
-                           VALUES('{$nombre}','{$periodo}','{$correo}','{$direccion}','{$telefono}','{$telEmergencia}','pass');";
+                           VALUES('{$nombre}','{$periodo}','{$correo}','{$direccion}','{$telefono}','{$telEmergencia}',md5('{$pass}'));";
             # Mandamos el INSERT a la BD               
             if($conexion->query($insertUsuario)){
                 echo "USUARIO REGISTRADO CORRECTAMENTE<br />";   
