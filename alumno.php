@@ -29,7 +29,7 @@
 <body>
 <h2>Bienvenido, en esta sección te podrás registrar para saber tu estado actual academico</h2>
 <form action ="#" method ="POST">
-        Telefono de Emergencia <input type="text" class="form-control" placeholder="Campo de texto"><br>
+        Telefono de Emergencia <input type="text" class="form-control" placeholder="Campo de texto" required="campo vacio"><br>
 		Nombre <input type="text" name="nombreAlumno" placeholder="Ingresa tu nombre"><br>
 		Periodo <input type="text" name="periodo" placeholder="Ingresa el cuatrimestre"><br>
 		Correo <input type="text" name="correo" placeholder="ingresa tu correo "><br>
