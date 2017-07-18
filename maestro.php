@@ -3,7 +3,7 @@
 	require_once('conexion.php');
 	    if(isset($_POST['btnRegistro'])){
     	    $nombre = $_POST['nombre'];
-        	$correo = $_POST['correo'];
+        	$correo = $_POST['correo']; 
         	$pass = $_POST['pass'];
         	
 
