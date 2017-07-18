@@ -1,8 +1,7 @@
 <?php
  session_start();
     require_once('conexion.php');
-        
-if(isset($_POST['btnLogin'])){
+    if(isset($_POST['btnLogin'])){
         # Capturamos los datos del formulario
         $nombreAlumno1= $_POST['nombre'];
         $pass1= $_POST['pass'];
@@ -14,13 +13,10 @@ if(isset($_POST['btnLogin'])){
                        AND pass='{$pass2}';";
         # Mandamos la consulta a la BD
         $totalUsuario = $conexion->query($userSearch)->fetch_object();
-        
         if($totalUsuario->total == 0){
             echo "EL USUARIO NO EXISTE <br />";
             echo $userSearch;
-         
-
-        }else{
+            }else{
                         echo "Login correcto <br />";
         }
     }
