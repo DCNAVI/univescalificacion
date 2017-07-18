@@ -35,6 +35,7 @@
     		Dirección <input type="text" name="direccion" required="Campo vacio"><br>
             Contraseña <input type="password" name="pass" required=""><br>
             <input type="submit" name ="btnRegistro" value="Registrar" >
+            
         </form>
 </body>
 </html>
