@@ -6,18 +6,19 @@ if(isset($_POST['btnLogin'])){
         # Capturamos los datos del formulario
         $nombreAlumno1= $_POST['nombreAlumnos'];
         $pass1= $_POST['passs'];
-        
+        $pass2= md5($pass1);
         # Hacemos una consulta que busque al usuario con los datos del formulario
         $userSearch = "SELECT COUNT(*) as total
                        FROM alumno
                        WHERE nombreAlumno = '{$nombreAlumno1}'
-                       AND pass = '{$pass1}';";
+                       AND pass='{$pass2}';";
         # Mandamos la consulta a la BD
         $totalUsuario = $conexion->query($userSearch)->fetch_object();
         
         if($totalUsuario->total == 0){
             echo "EL USUARIO NO EXISTE <br />";
-            echo  md5($pass1);
+            echo $userSearch;
+         
 
         }else{
                         echo "Login correcto <br />";

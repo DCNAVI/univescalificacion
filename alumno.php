@@ -11,7 +11,8 @@
             $pass = $_POST['pass'];
             #Creamos un INSERT para agregar el usuario
             $insertUsuario="INSERT INTO alumno(nombreAlumno,periodo,correo,direccion,telefono,telEmergencia,pass)
-                           VALUES('{$nombre}','{$periodo}','{$correo}','{$direccion}','{$telefono}','{$telEmergencia}',md5('{$pass}'));";
+                           VALUES('{$nombre}','{$periodo}','{$correo}','{$direccion}','{$telefono}','{$telEmergencia}',
+                           md5('{$pass}'));";
             # Mandamos el INSERT a la BD               
             if($conexion->query($insertUsuario)){
                 echo "USUARIO REGISTRADO CORRECTAMENTE<br />";   
@@ -33,9 +34,9 @@
     		Telefono <input type="text" name="telefono" required="Campo vacio"><br>
     		Télefono de Emergencia <input type="text" name="telEmergencia" required="Campo vacio"><br>
     		Dirección <input type="text" name="direccion" required="Campo vacio"><br>
-            Contraseña <input type="password" name="pass" required=""><br>
+            Contraseña <input type="password" name="pass" required><br>
             <input type="submit" name ="btnRegistro" value="Registrar" >
-            
+
         </form>
 </body>
 </html>
