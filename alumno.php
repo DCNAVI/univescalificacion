@@ -28,13 +28,13 @@
 <body>
     <h2>Bienvenido, en esta sección te podrás registrar para saber tu estado actual academico</h2>
         <form action ="#" method ="POST">
-            Telefono de Emergencia <input type="text" class="form-control" required="Campo vacio"><br>
-    		Nombre <input type="text" name="nombreAlumno" required="Campo vacio"><br>
+            Nombre <input type="text" name="nombreAlumno" required="Campo vacio"><br>
     		Periodo <input type="text" name="periodo" required="Campo vacio"><br>
     		Correo <input type="text" name="correo" required="Campo vacio"><br>
     		Telefono <input type="text" name="telefono" required="Campo vacio"><br>
     		Télefono de Emergencia <input type="text" name="telEmergencia" required="Campo vacio"><br>
     		Dirección <input type="text" name="direccion" required="Campo vacio"><br>
+            Contraseña <input type="password" name="pass" required=""><br>
             Contraseña <input type="password" name="pass" required=""><br>
     		<input type="submit" name ="btnRegistro" value="Registrar" >
         </form>
