@@ -17,7 +17,7 @@
             echo "EL USUARIO NO EXISTE <br />";
             echo $userSearch;
             }else{
-                        echo "Login correcto <br />";
+                        echo "Login correcto! <br />";
         }
     }
 ?>
