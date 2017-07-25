@@ -10,7 +10,7 @@ if(isset($_POST['btnLogin'])){
         # Hacemos una consulta que busque al usuario con los datos del formulario
         $userSearch = "SELECT COUNT(*) as total
                        FROM alumno
-                       WHERE nombreAlumno = '{$nombreAlumno1}'
+                       WHERE correo = '{$nombreAlumno1}'
                        AND pass='{$pass2}';";
         # Mandamos la consulta a la BD
         $totalUsuario = $conexion->query($userSearch)->fetch_object();
@@ -33,7 +33,7 @@ if(isset($_POST['btnLogin'])){
 </head>
 <body>
         <form action ="#" method ="POST">
-            Nombre de usuario <input type="text" name="nombreAlumnos" ><br>
+            Correo Electronico <input type="text" name="nombreAlumnos" ><br>
             Contraseña <input type="password" name="passs"><br>
             <input type="submit" name ="btnLogin" value="Registrar" >
         </form>
