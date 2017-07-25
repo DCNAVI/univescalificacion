@@ -3,13 +3,13 @@
     require_once('conexion.php');
     if(isset($_POST['btnLogin'])){
         # Capturamos los datos del formulario
-        $nombreAlumno1= $_POST['nombre'];
+        $correo= $_POST['correo'];
         $pass1= $_POST['pass'];
         $pass2= md5($pass1);
         # Hacemos una consulta que busque al usuario con los datos del formulario
         $userSearch = "SELECT COUNT(*) as total
                        FROM maestro
-                       WHERE nombre = '{$nombreAlumno1}'
+                       WHERE correo = '{$correo}'
                        AND pass='{$pass2}';";
         # Mandamos la consulta a la BD
         $totalUsuario = $conexion->query($userSearch)->fetch_object();
@@ -29,7 +29,7 @@
 </head>
 <body>
         <form action ="#" method ="POST">
-            Nombre de usuario <input type="text" name="nombre" ><br>
+            Nombre de usuario <input type="text" name="correo" ><br>
             Contraseña <input type="password" name="pass"><br>
             <input type="submit" name ="btnLogin" value="Registrar" >
         </form>
