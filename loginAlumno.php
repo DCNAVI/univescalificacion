@@ -21,7 +21,7 @@ if(isset($_POST['btnLogin'])){
          
 
         }else{
-                        echo "Login correcto <br />";
+            echo "Login correcto <br />";
         }
     }
 ?>
