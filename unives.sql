@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2017 a las 17:43:27
+-- Tiempo de generación: 25-07-2017 a las 18:04:11
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -34,7 +34,7 @@ CREATE TABLE `alumno` (
   `direccion` varchar(45) DEFAULT NULL,
   `telefono` varchar(45) DEFAULT NULL,
   `telEmergencia` varchar(45) DEFAULT NULL,
-  `pass` varchar(25) DEFAULT NULL
+  `pass` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -56,10 +56,11 @@ CREATE TABLE `area` (
 --
 
 CREATE TABLE `calificaciones` (
-  `idCalificaciones` int(11) NOT NULL,
-  `idCalMaestro` varchar(45) DEFAULT NULL,
-  `calMaestro_idcalMaestro` int(11) NOT NULL,
-  `alumno_expediente` int(11) NOT NULL
+  `idCalificaiones` int(11) DEFAULT NULL,
+  `idMateria` int(11) DEFAULT NULL,
+  `idMaestro` int(11) DEFAULT NULL,
+  `idAlumno` int(11) NOT NULL,
+  `calificacion` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -85,8 +86,17 @@ CREATE TABLE `maestro` (
   `idmaestro` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
   `correo` varchar(45) DEFAULT NULL,
-  `pass` varchar(25) DEFAULT NULL
+  `pass` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `maestro`
+--
+
+INSERT INTO `maestro` (`idmaestro`, `nombre`, `correo`, `pass`) VALUES
+(3, 'maestro', 'maestro', 'maestro'),
+(4, 'om', 'om', 'd58da82289939d8c4ec4f40689c2847e'),
+(5, 'olaff', 'or', 'e81c4e4f2b7b93b481e13a8553c2ae1b');
 
 -- --------------------------------------------------------
 
@@ -96,8 +106,7 @@ CREATE TABLE `maestro` (
 
 CREATE TABLE `materia` (
   `idMateria` int(11) NOT NULL,
-  `nombreMateria` varchar(45) DEFAULT NULL,
-  `calMaestro_idcalMaestro` int(11) NOT NULL
+  `nombreMateria` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -130,14 +139,6 @@ ALTER TABLE `area`
   ADD KEY `fk_area_alumno1_idx` (`alumno_expediente`);
 
 --
--- Indices de la tabla `calificaciones`
---
-ALTER TABLE `calificaciones`
-  ADD PRIMARY KEY (`idCalificaciones`,`calMaestro_idcalMaestro`,`alumno_expediente`),
-  ADD KEY `fk_calificaciones_calMaestro1_idx` (`calMaestro_idcalMaestro`),
-  ADD KEY `fk_calificaciones_alumno1_idx` (`alumno_expediente`);
-
---
 -- Indices de la tabla `calmaestro`
 --
 ALTER TABLE `calmaestro`
@@ -153,8 +154,7 @@ ALTER TABLE `maestro`
 -- Indices de la tabla `materia`
 --
 ALTER TABLE `materia`
-  ADD PRIMARY KEY (`idMateria`),
-  ADD KEY `fk_materia_calMaestro1_idx` (`calMaestro_idcalMaestro`);
+  ADD PRIMARY KEY (`idMateria`);
 
 --
 -- Indices de la tabla `periodo`
@@ -171,7 +171,12 @@ ALTER TABLE `periodo`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT de la tabla `maestro`
+--
+ALTER TABLE `maestro`
+  MODIFY `idmaestro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
