@@ -35,7 +35,7 @@ session_start();
 <?php 
 
 #hacemos una consulta que nos muestre las calificaciones
-$vercalificacion = "SELECT * FROM calificaciones
+$vercalificacion = "SELECT * FROM calificaciones, materia
 where idAlumno= (SELECT expediente from alumno where expediente= {$nip});";
 #mandamos la consulta a la bd de datos 
 $resultadopaq = mysqli_query($conexion, $vercalificacion)
@@ -59,7 +59,12 @@ $resultadopaq = mysqli_query($conexion, $vercalificacion)
   
         <?php 
   while ($paq= $resultadopaq->fetch_object()) { ?>
-    <td><?php echo $paq->idMateria;  ?></td>
+
+  <?php  $vermat = "SELECT * FROM materia ;";
+  $resultadomat = mysqli_query($conexion, $vermat)
+  //$paq= $resultadomat->fetch_object()
+   ?>
+    <td><?php echo $paq->nombreMateria;  ?></td>
   <td><?php echo $paq->calFinal;;
       ?></td>
    </tr>
