@@ -32,7 +32,7 @@
     		Periodo <input type="text" name="periodo" required="Campo vacio"><br>
     		Correo <input type="text" name="correo" required="Campo vacio"><br>
     		Telefono <input type="text" name="telefono" required="Campo vacio"><br>
-    		Télefono de Emergencia <input type="text" name="telEmergencia" required="Campo vacio"><br>
+    		Escuela de Procedencia <input type="text" name="telEmergencia" required="Campo vacio"><br>
     		Dirección <input type="text" name="direccion" required="Campo vacio"><br>
             Contraseña <input type="password" name="pass" required><br>
             <input type="submit" name ="btnRegistro" value="Registrar" >

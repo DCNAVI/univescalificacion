@@ -21,12 +21,24 @@ if(isset($_POST['btnLogin'])){
          
 
         }else{
-            echo "Login correcto <br />";
+           
+              $userData = "SELECT expediente, correo, pass FROM alumno
+                         WHERE correo= '{$nombreAlumno1}'
+                         AND pass = '{$pass2}';";
+
+                          # Mandamos la consulta a la BD
+            $usuario = $conexion->query($userData)->fetch_object();
+
+           $_SESSION['expedientea'] = $usuario->expediente;
+          
+         
+             header("Location: interfazalumno.php");
         }
     }
 ?>
 <!DOCTYPE html>
 <html>
+
 <meta charset="utf-8">
 <head>
     <title>login</title>
@@ -35,7 +47,7 @@ if(isset($_POST['btnLogin'])){
         <form action ="#" method ="POST">
             Correo Electronico <input type="text" name="nombreAlumnos" ><br>
             Contraseña <input type="password" name="passs"><br>
-            <input type="submit" name ="btnLogin" value="Registrar" >
+            <input type="submit" name ="btnLogin" value="Ingresar" >
         </form>
 </body>
 </html>
