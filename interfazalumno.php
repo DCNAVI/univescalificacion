@@ -40,9 +40,9 @@ where idAlumno= (SELECT expediente from alumno where expediente= {$nip});";
 #mandamos la consulta a la bd de datos 
 $resultadopaq = mysqli_query($conexion, $vercalificacion)
 
- $vermat = "SELECT * FROM materia
-where idMateria= (SELECT idMateria from calificaciones where idMateria= 1);";
-$resultadomat = mysqli_query($conexion, $vermat)
+// $vermat = "SELECT * FROM materia
+//where idMateria= (SELECT idMateria from calificaciones where idMateria= 1);";
+//$resultadomat = mysqli_query($conexion, $vermat)
 
 
 
@@ -58,14 +58,9 @@ $resultadomat = mysqli_query($conexion, $vermat)
    <tr>
   
         <?php 
-  while ($paq= $resultadopaq->fetch_object(). $mat= $resultadomat->fetch_object()) { ?>
-    <td><?php echo $paq->calFinal;  ?></td>
-
-
-
- 
-
-  <td><?php echo $mat->nombreMateria;;
+  while ($paq= $resultadopaq->fetch_object()) { ?>
+    <td><?php echo $paq->idMateria;  ?></td>
+  <td><?php echo $paq->calFinal;;
       ?></td>
    </tr>
 
