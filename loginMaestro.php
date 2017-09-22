@@ -1,37 +1,53 @@
 <?php
  session_start();
     require_once('conexion.php');
-    if(isset($_POST['btnLogin'])){
+        
+if(isset($_POST['btnLogin'])){
         # Capturamos los datos del formulario
-        $correo= $_POST['correo'];
-        $pass1= $_POST['pass'];
+        $nombreAlumno1= $_POST['nombreAlumnos'];
+        $pass1= $_POST['passs'];
         $pass2= md5($pass1);
         # Hacemos una consulta que busque al usuario con los datos del formulario
         $userSearch = "SELECT COUNT(*) as total
                        FROM maestro
-                       WHERE correo = '{$correo}'
+                       WHERE correo = '{$nombreAlumno1}'
                        AND pass='{$pass2}';";
         # Mandamos la consulta a la BD
         $totalUsuario = $conexion->query($userSearch)->fetch_object();
+        
         if($totalUsuario->total == 0){
             echo "EL USUARIO NO EXISTE <br />";
             echo $userSearch;
-            }else{
-                        echo "Login correcto!!! <br />";
+         
+
+        }else{
+           
+              $userData = "SELECT idmaestro, correo, pass FROM maestro
+                         WHERE correo= '{$nombreAlumno1}'
+                         AND pass = '{$pass2}';";
+
+                          # Mandamos la consulta a la BD
+            $usuario = $conexion->query($userData)->fetch_object();
+
+           $_SESSION['expedientea'] = $usuario->idmaestro;
+          
+         
+             header("Location: interfazmaestro.php");
         }
     }
 ?>
 <!DOCTYPE html>
 <html>
+
 <meta charset="utf-8">
 <head>
     <title>login</title>
 </head>
 <body>
         <form action ="#" method ="POST">
-            Nombre de usuario <input type="text" name="correo" ><br>
-            Contraseña <input type="password" name="pass"><br>
-            <input type="submit" name ="btnLogin" value="Registrar" >
+            Correo Electronico <input type="text" name="nombreAlumnos" ><br>
+            Contraseña <input type="password" name="passs"><br>
+            <input type="submit" name ="btnLogin" value="Ingresar" >
         </form>
 </body>
 </html>
